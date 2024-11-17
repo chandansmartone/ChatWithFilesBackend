@@ -15,11 +15,12 @@ dotenv.config();
 const app = express();
 const allowedOrigins = ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5174', process.env.frondend_url];
 app.use(cors({
-  origin: allowedOrigins,
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   // Specify the allowed HTTP methods
   credentials: true // Allow credentials to be sent in requests
 }));
+
 app.use(express.json());
 app.use(bodyParser.json());
 const openai = new OpenAI({
